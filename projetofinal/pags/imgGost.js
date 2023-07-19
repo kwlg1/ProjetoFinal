@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, StyleSheet, View, Image, ScrollView} from 'react-native';
+import { Text, StyleSheet, View, Image, ScrollView, SafeAreaView} from 'react-native';
 
 const cubo = require('./cubo.webp');
 const python = require('./python.jpeg');
@@ -10,7 +10,7 @@ const css = require('./imgcss.png');
 
 export default function ImgGost() {
  return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
         <ScrollView>
         <Text style={styles.text}>
             {"cubo magico:\n"} 
@@ -34,7 +34,7 @@ export default function ImgGost() {
         </Text>
         <Image source={Js} style={styles.image}></Image>
         </ScrollView>
-    </View>
+    </SafeAreaView>
 
   );
 }
@@ -42,7 +42,7 @@ export default function ImgGost() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#e9F3FB",
+        backgroundColor: "#8c8c8c",
         alignItems: "center",
         justifyContent: "center",
         padding: "10%",

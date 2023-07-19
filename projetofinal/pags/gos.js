@@ -14,12 +14,14 @@ export default function Gos() {
    const styles = StyleSheet.create({
        container: {
            flex: 1,
-           backgroundColor: "#e9F3FB",
+           backgroundColor: "#8c8c8c",
            alignItems: "center",
            justifyContent: "center",
-           padding: "10%",
+           padding: "15%",
        },
        text: {
-           color: "black",
+           color: "#fff",
+           textAlign: "justify",
+           
        }
    })

@@ -1,25 +1,30 @@
 import React, { useRef, useEffect} from 'react';
-import { View, Text, StyleSheet, Animated, Image} from 'react-native';
+import { View, Text, StyleSheet, Animated } from 'react-native';
 
 const myFoto = require('./myFoto.jpeg');
 
 export default function App() {
   const larAnimada = useRef(new Animated.Value(200)).current;
-  const altAnimada = useRef(new Animated.Value(200)).current;
-
+  const altAnimada = useRef(new Animated.Value(100)).current;
 
   useEffect(()=> {
 
   Animated.loop(
   
       Animated.sequence([
+        Animated.timing(larAnimada, {
+          toValue: 400,
+          duration: 2000,
+          useNativeDriver: false
+        
+        }),
         Animated.timing(altAnimada, {
           toValue: 300,
           duration: 2000,
           useNativeDriver: false
         }),
-        Animated.timing(larAnimada, {
-          toValue: 300,
+        Animated.timing(altAnimada, {
+          toValue: 100,
           duration: 2000,
           useNativeDriver: false
         }),
@@ -28,13 +33,8 @@ export default function App() {
           duration: 2000,
           useNativeDriver: false
         }),
-        Animated.timing(altAnimada, {
-          toValue: 200,
-          duration: 2000,
-          useNativeDriver: false
-        }), 
+      ]),
 
-      ])
   ).start();
 
   }, []);
@@ -46,14 +46,13 @@ export default function App() {
       style={{ 
         width: larAnimada,
         height: altAnimada,
-        backgroundColor: '#4169e1',
+        backgroundColor: "#000",
         justifyContent: 'center',
-        borderRadius: 400,
+        borderRadius: 50,
     
       }}
       >
-        {/*<Image style={{alignItems: "center", width: 400, height: 400, borderRadius: "20px"}} source={myFoto}></Image>*/}
-        <Text style={{ textAlign: 'center', fontSize: 22, color: '#FFF'}}>FIM...</Text>
+        <Text style={{color: "#fff", fontSize: 50, textAlign: 'center'}}>Fim....</Text>
       </Animated.View>
 
    </View>
@@ -63,7 +62,8 @@ export default function App() {
 const styles = StyleSheet.create({
   container:{
     flex:1,
+    backgroundColor: "#8c8c8c",
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'center'
   },
 })
