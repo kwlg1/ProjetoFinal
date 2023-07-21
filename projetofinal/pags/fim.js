@@ -1,5 +1,6 @@
 import React, { useRef, useEffect} from 'react';
-import { View, StyleSheet, Text, Animated } from 'react-native';
+import { View, StyleSheet, Text, Animated, StatusBar} from 'react-native';
+
 
 const myFoto = require('./coracao.png');
 
@@ -12,26 +13,16 @@ export default function App() {
   
       Animated.sequence([
         Animated.timing(dimensao, {
-          toValue: 300,
-          duration: 700,
+          toValue: 350,
+          duration: 600,
           useNativeDriver: false
         
         }),
-        //Animated.timing(altAnimada, {
-          //toValue: 300,
-          //duration: 2000,
-          //useNativeDriver: false
-        //}),
-        /* Animated.timing(altAnimada, {
-          toValue: 100,
-          duration: 2000,
+        Animated.timing(dimensao, {
+          toValue: 200,
+          duration: 600,
           useNativeDriver: false
         }),
-        Animated.timing(larAnimada, {
-          toValue: 200,
-          duration: 2000,
-          useNativeDriver: false
-        }),*/
       ]),
 
   ).start();
@@ -39,19 +30,20 @@ export default function App() {
   }, []);
 
  return (
-   <View style={styles.container}>
-
+  
+  <View style={styles.container}>
+     <StatusBar></StatusBar>
       <Animated.Image
       style={{ 
         width: dimensao,
         height: dimensao,
         justifyContent: 'center',
+
       }}
       source={myFoto}
       >       
       </Animated.Image>
-      <Text style={styles.Text}>Estou vivo!</Text>
-   </View>
+  </View>
   );
 }
 
@@ -65,5 +57,6 @@ const styles = StyleSheet.create({
   Text:{
     color: "#fff",
     fontSize: 30
+
   }
 })

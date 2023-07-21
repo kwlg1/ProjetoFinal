@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     text: {
         padding: "7%",
         color: "#fff",
-        textAlign: "justify"
+        textAlign: "justify",
     },
 
     Image: {
