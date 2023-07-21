@@ -15,8 +15,7 @@ export default function App() {
 
 const Tab = createBottomTabNavigator();
   return (
-    <SafeAreaView>
-      <NavigationContainer>
+      <NavigationContainer >
         <Tab.Navigator screenOptions={{tabBarShowLabel: false, headerShown: false, tabBarActiveBackgroundColor: "#8c8c8c",tabBarInactiveBackgroundColor: "#3c3c3c"}}>
           <Tab.Screen name="biografia" component={biografia} options={{tabBarIcon: ({focado}) => (<Text><Icon name="user" size={20} color={focado? "#fff" : "#000"}/></Text>)}} />
           <Tab.Screen name="gos" component={gos} options={{tabBarIcon: ({focado}) => (<Text><Icon name="like2" size={20} color={focado? "blue" : "black"}/></Text>)}}/>
@@ -25,6 +24,6 @@ const Tab = createBottomTabNavigator();
           <Tab.Screen name="fim" component={fim} options={{tabBarIcon: ({focado}) => (<Text><Icon name="closecircle" size={20} color={focado? "#fff" : "black"}/></Text>)}}/>
         </Tab.Navigator>
       </NavigationContainer>
-    </SafeAreaView>
+    
   );
 }

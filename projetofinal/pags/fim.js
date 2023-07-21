@@ -1,29 +1,28 @@
 import React, { useRef, useEffect} from 'react';
-import { View, Text, StyleSheet, Animated } from 'react-native';
+import { View, StyleSheet, Text, Animated } from 'react-native';
 
-const myFoto = require('./myFoto.jpeg');
+const myFoto = require('./coracao.png');
 
 export default function App() {
-  const larAnimada = useRef(new Animated.Value(200)).current;
-  const altAnimada = useRef(new Animated.Value(100)).current;
+  const dimensao = useRef(new Animated.Value(200)).current;
 
   useEffect(()=> {
 
   Animated.loop(
   
       Animated.sequence([
-        Animated.timing(larAnimada, {
-          toValue: 400,
-          duration: 2000,
+        Animated.timing(dimensao, {
+          toValue: 300,
+          duration: 700,
           useNativeDriver: false
         
         }),
-        Animated.timing(altAnimada, {
-          toValue: 300,
-          duration: 2000,
-          useNativeDriver: false
-        }),
-        Animated.timing(altAnimada, {
+        //Animated.timing(altAnimada, {
+          //toValue: 300,
+          //duration: 2000,
+          //useNativeDriver: false
+        //}),
+        /* Animated.timing(altAnimada, {
           toValue: 100,
           duration: 2000,
           useNativeDriver: false
@@ -32,7 +31,7 @@ export default function App() {
           toValue: 200,
           duration: 2000,
           useNativeDriver: false
-        }),
+        }),*/
       ]),
 
   ).start();
@@ -42,19 +41,16 @@ export default function App() {
  return (
    <View style={styles.container}>
 
-      <Animated.View 
+      <Animated.Image
       style={{ 
-        width: larAnimada,
-        height: altAnimada,
-        backgroundColor: "#000",
+        width: dimensao,
+        height: dimensao,
         justifyContent: 'center',
-        borderRadius: 50,
-    
       }}
-      >
-        <Text style={{color: "#fff", fontSize: 50, textAlign: 'center'}}>Fim....</Text>
-      </Animated.View>
-
+      source={myFoto}
+      >       
+      </Animated.Image>
+      <Text style={styles.Text}>Estou vivo!</Text>
    </View>
   );
 }
@@ -66,4 +62,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   },
+  Text:{
+    color: "#fff",
+    fontSize: 30
+  }
 })
